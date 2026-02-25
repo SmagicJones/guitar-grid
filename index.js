@@ -108,8 +108,22 @@ let audioCtx = null;
 function getAudioCtx() {
   if (!audioCtx)
     audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  if (audioCtx.state === "suspended") audioCtx.resume();
   return audioCtx;
 }
+
+const soundToggle = document.getElementById("sound-toggle");
+const soundLabel = soundToggle.closest("label");
+
+soundToggle.addEventListener("change", function () {
+  if (this.checked) {
+    // user gesture — safe to create/resume context here
+    getAudioCtx();
+    soundLabel.childNodes[1].textContent = " Sound 🔊";
+  } else {
+    soundLabel.childNodes[1].textContent = " Sound 🔇";
+  }
+});
 
 // semitone offset of each open string from A4 (440hz)
 // E2=-29, A2=-24, D3=-19, G3=-14, B3=-10, E4=-5
@@ -123,6 +137,7 @@ const openStringSemitones = {
 };
 
 function playNote(semitoneFromA4) {
+  if (!document.getElementById("sound-toggle").checked) return;
   const ctx = getAudioCtx();
   const a4 = document.getElementById("tuning-toggle").checked ? 432 : 440;
   const freq = a4 * Math.pow(2, semitoneFromA4 / 12);
