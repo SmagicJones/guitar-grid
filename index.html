@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>guitar-grid</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="main-header">
+      <h1>guitar-grid</h1>
+      <div class="controls">
+        <div>
+          <label for="root-select">Root</label>
+          <select id="root-select">
+            <option value="c">C</option>
+            <option value="cs">C#</option>
+            <option value="d">D</option>
+            <option value="ds">D#</option>
+            <option value="e">E</option>
+            <option value="f">F</option>
+            <option value="fs">F#</option>
+            <option value="g">G</option>
+            <option value="gs">G#</option>
+            <option value="a">A</option>
+            <option value="as">A#</option>
+            <option value="b">B</option>
+          </select>
+        </div>
+        <div>
+          <label for="scale-select">Scale</label>
+          <select id="scale-select">
+            <option value="major">Major</option>
+            <option value="minor">Minor</option>
+            <option value="majorPentatonic">Major Pentatonic</option>
+            <option value="minorPentatonic">Minor Pentatonic</option>
+          </select>
+        </div>
+        <label class="colour-toggle">
+          <input type="checkbox" id="interval-toggle" checked />
+          Interval colours
+        </label>
+        <label class="colour-toggle">
+          <input type="checkbox" id="tuning-toggle" />
+          432hz
+        </label>
+      </div>
+      <div class="legend"></div>
+    </header>
+
+    <div class="grid-wrapper">
+      <div class="grid" id="neck">
+        <!-- Open strings -->
+        <div class="box open string-1 e">E</div>
+        <div class="box open string-2 a">A</div>
+        <div class="box open string-3 d">D</div>
+        <div class="box open string-4 g">G</div>
+        <div class="box open string-5 b">B</div>
+        <div class="box open string-6 e">E</div>
+
+        <!-- Fret 1 -->
+        <div class="box string-1 f">F</div>
+        <div class="box string-2 as">A#</div>
+        <div class="box string-3 ds">D#</div>
+        <div class="box string-4 gs">G#</div>
+        <div class="box string-5 c">C</div>
+        <div class="box string-6 f">F</div>
+
+        <!-- Fret 2 -->
+        <div class="box string-1 fs">F#</div>
+        <div class="box string-2 b">B</div>
+        <div class="box string-3 e">E</div>
+        <div class="box string-4 a">A</div>
+        <div class="box string-5 cs">C#</div>
+        <div class="box string-6 fs">F#</div>
+
+        <!-- Fret 3 -->
+        <div class="box string-1 g">G</div>
+        <div class="box string-2 c">C</div>
+        <div class="box string-3 f">F</div>
+        <div class="box string-4 as">A#</div>
+        <div class="box string-5 d">D</div>
+        <div class="box string-6 g">G</div>
+
+        <!-- Fret 4 -->
+        <div class="box string-1 gs">G#</div>
+        <div class="box string-2 cs">C#</div>
+        <div class="box string-3 fs">F#</div>
+        <div class="box string-4 b">B</div>
+        <div class="box string-5 ds">D#</div>
+        <div class="box string-6 gs">G#</div>
+
+        <!-- Fret 5 -->
+        <div class="box string-1 a">A</div>
+        <div class="box string-2 d">D</div>
+        <div class="box string-3 g">G</div>
+        <div class="box string-4 c">C</div>
+        <div class="box string-5 e">E</div>
+        <div class="box string-6 a">A</div>
+
+        <!-- Fret 6 -->
+        <div class="box string-1 as">A#</div>
+        <div class="box string-2 ds">D#</div>
+        <div class="box string-3 gs">G#</div>
+        <div class="box string-4 cs">C#</div>
+        <div class="box string-5 f">F</div>
+        <div class="box string-6 as">A#</div>
+
+        <!-- Fret 7 -->
+        <div class="box string-1 b">B</div>
+        <div class="box string-2 e">E</div>
+        <div class="box string-3 a">A</div>
+        <div class="box string-4 d">D</div>
+        <div class="box string-5 fs">F#</div>
+        <div class="box string-6 b">B</div>
+
+        <!-- Fret 8 -->
+        <div class="box string-1 c">C</div>
+        <div class="box string-2 f">F</div>
+        <div class="box string-3 as">A#</div>
+        <div class="box string-4 ds">D#</div>
+        <div class="box string-5 g">G</div>
+        <div class="box string-6 c">C</div>
+
+        <!-- Fret 9 -->
+        <div class="box string-1 cs">C#</div>
+        <div class="box string-2 fs">F#</div>
+        <div class="box string-3 b">B</div>
+        <div class="box string-4 e">E</div>
+        <div class="box string-5 gs">G#</div>
+        <div class="box string-6 cs">C#</div>
+
+        <!-- Fret 10 -->
+        <div class="box string-1 d">D</div>
+        <div class="box string-2 g">G</div>
+        <div class="box string-3 c">C</div>
+        <div class="box string-4 f">F</div>
+        <div class="box string-5 a">A</div>
+        <div class="box string-6 d">D</div>
+
+        <!-- Fret 11 -->
+        <div class="box string-1 ds">D#</div>
+        <div class="box string-2 gs">G#</div>
+        <div class="box string-3 cs">C#</div>
+        <div class="box string-4 fs">F#</div>
+        <div class="box string-5 as">A#</div>
+        <div class="box string-6 ds">D#</div>
+
+        <!-- Fret 12 -->
+        <div class="box string-1 e">E</div>
+        <div class="box string-2 a">A</div>
+        <div class="box string-3 d">D</div>
+        <div class="box string-4 g">G</div>
+        <div class="box string-5 b">B</div>
+        <div class="box string-6 e">E</div>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
